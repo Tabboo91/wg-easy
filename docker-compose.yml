@@ -5,11 +5,11 @@ services:
   wg-easy:
     #environment:
     #  Optional:
-    #  - PORT=51821
-    #  - HOST=0.0.0.0
-    #  - INSECURE=false
+    #  - PORT=52821
+    #  - HOST=127.0.0.1
+     - INSECURE=True
 
-    image: ghcr.io/wg-easy/wg-easy:15
+    image: ghcr.io/wg-easy/wg-easy:15.2.2
     container_name: wg-easy
     networks:
       wg:
@@ -19,8 +19,9 @@ services:
       - etc_wireguard:/etc/wireguard
       - /lib/modules:/lib/modules:ro
     ports:
-      - "51820:51820/udp"
-      - "51821:51821/tcp"
+      - "52820:52820/udp"
+      - "127.0.0.1:52821:52821/tcp
+      - "52821:52821/tcp"
     restart: unless-stopped
     cap_add:
       - NET_ADMIN
