@@ -5,7 +5,7 @@ services:
   wg-easy:
     #environment:
     #  Optional:
-      - PORT=52821
+    #  - PORT=52821
     #  - HOST=0.0.0.0
       - INSECURE=true
 
