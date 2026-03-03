@@ -1,11 +1,10 @@
-volumes:
-  etc_wireguard:
+mkdir -p /data/etc_wireguard
 
 services:
   wg-easy:
-    #environment:
+    environment:
     #  Optional:
-    #  - PORT=52821
+    #  - PORT=51821
     #  - HOST=0.0.0.0
       - INSECURE=true
 
@@ -16,11 +15,11 @@ services:
         ipv4_address: 10.42.42.42
         ipv6_address: fdcc:ad94:bacf:61a3::2a
     volumes:
-      - etc_wireguard:/etc/wireguard
+      - /data/etc_wireguard:/etc/wireguard
       - /lib/modules:/lib/modules:ro
     ports:
-      - "52820:52820/udp"
-      - "52821:52821/tcp"
+      - "51820:51820/udp"
+      - "51821:51821/tcp"
     restart: unless-stopped
     cap_add:
       - NET_ADMIN
