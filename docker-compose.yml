@@ -20,6 +20,7 @@ services:
       - /lib/modules:/lib/modules:ro
     ports:
       - "52820:52820/udp"
+#     -"127.0.0.1:52821:52821/tcp"
       - "52821:52821/tcp"
     restart: unless-stopped
     cap_add:
